@@ -57,6 +57,7 @@ import {
   Info,
 } from "lucide-react";
 import DownloadDialog from "@/components/common/DownloadDialog";
+import { filterFn, Operator } from "@/utils/filterUtils";
 
 interface TableProps<T extends RowData> {
   result: {
@@ -157,6 +158,7 @@ function CHUITable<T extends RowData>({
 
           return value;
         },
+        filterFn: filterFn
       })),
     ],
     [meta, pagination.pageIndex, pagination.pageSize]

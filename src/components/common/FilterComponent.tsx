@@ -8,14 +8,7 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
-
-type Operator =
-  | "equals"
-  | "contains"
-  | "starts_with"
-  | "ends_with"
-  | "greater_than"
-  | "less_than";
+import { Operator } from "@/utils/filterUtils";
 
 const operators: { value: Operator; label: string }[] = [
   { value: "equals", label: "Equals" },
@@ -38,7 +31,7 @@ const FilterComponent = ({ column }: { column: Column<any, unknown> }) => {
       setOperator(filterValue.operator);
       setValue(filterValue.value);
     }
-  }, [column]);
+  }, []);
 
   const updateFilter = (newOperator: Operator, newValue: string) => {
     const filterValue = newValue
